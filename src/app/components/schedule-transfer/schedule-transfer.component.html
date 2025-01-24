@@ -1,0 +1,44 @@
+<div class="container">
+  <h2>Agendamento de Transferência</h2>
+  <form [formGroup]="transferForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="cpf">CPF:</label>
+      <input id="cpf" formControlName="cpf" type="text" />
+      <div *ngIf="transferForm.get('cpf')?.invalid && transferForm.get('cpf')?.touched">
+        <small *ngIf="transferForm.get('cpf')?.errors?.['required']">CPF é obrigatório.</small>
+        <small *ngIf="transferForm.get('cpf')?.errors?.['pattern']">CPF deve conter 11 dígitos.</small>
+      </div>
+    </div>
+    <div>
+      <label for="originAccount">Conta de Origem:</label>
+      <input id="originAccount" formControlName="originAccount" type="text" />
+      <div *ngIf="transferForm.get('originAccount')?.invalid && transferForm.get('originAccount')?.touched">
+        <small>Conta de origem é obrigatória.</small>
+      </div>
+    </div>
+    <div>
+      <label for="destinationAccount">Conta de Destino:</label>
+      <input id="destinationAccount" formControlName="destinationAccount" type="text" />
+      <div *ngIf="transferForm.get('destinationAccount')?.invalid && transferForm.get('destinationAccount')?.touched">
+        <small>Conta de destino é obrigatória.</small>
+      </div>
+    </div>
+    <div>
+      <label for="scheduleDate">Data do Agendamento:</label>
+      <input id="scheduleDate" formControlName="scheduleDate" type="datetime-local" />
+      <div *ngIf="transferForm.get('scheduleDate')?.invalid && transferForm.get('scheduleDate')?.touched">
+        <small>Data do agendamento é obrigatória.</small>
+      </div>
+    </div>
+    <div>
+      <label for="transferValue">Valor da Transferência:</label>
+      <input id="transferValue" formControlName="transferValue" type="number" step="0.01" />
+      <div *ngIf="transferForm.get('transferValue')?.invalid && transferForm.get('transferValue')?.touched">
+        <small *ngIf="transferForm.get('transferValue')?.errors?.['required']">Valor é obrigatório.</small>
+        <small *ngIf="transferForm.get('transferValue')?.errors?.['min']">Valor deve ser maior que zero.</small>
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="transferForm.invalid">Criar Agendamento</button>
+  </form>
+</div>
