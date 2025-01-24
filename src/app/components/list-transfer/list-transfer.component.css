@@ -1,0 +1,32 @@
+.container {
+    margin: 20px;
+  }
+  
+  .loading {
+    color: blue;
+    font-weight: bold;
+  }
+  
+  .error {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+  }
+  
+  .table th,
+  .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .empty {
+    margin-top: 20px;
+    color: gray;
+  }
+  

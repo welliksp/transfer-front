@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Lista de Agendamentos de Transferências</h2>
+
+  <table border="1" cellpadding="10">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>CPF</th>
+        <th>Conta Origem</th>
+        <th>Conta Destino</th>
+        <th>Data de Agendamento</th>
+        <th>Valor da Transferência</th>
+        <th>Taxa de Juros</th>
+        <th>Status</th>
+        <th>Data de Criação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transfer of transfers">
+        <td>{{ transfer.id }}</td>
+        <td>{{ transfer.cpf }}</td>
+        <td>{{ transfer.originAccount }}</td>
+        <td>{{ transfer.destinationAccount }}</td>
+        <td>{{ transfer.scheduleDate}}</td>
+        <td>{{ transfer.transferValue}}</td>
+        <td>{{ transfer.interestRate }}</td>
+        <td>{{ transfer.status }}</td>
+        <td>{{ transfer.createdAt}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
